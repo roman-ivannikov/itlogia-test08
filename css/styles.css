@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.btn {
+    background: #DD3142;
+    border-radius: 40px;
+    color: #FFFFFF;
+    transition: all .2s;
+}
+
+.btn:hover {
+    background: #bf2938;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../assets/fonts/subset-Nunito-Bold.woff2') format('woff2'),
+    url('../assets/fonts/subset-Nunito-Bold.woff') format('woff'),
+    url('../assets/fonts/subset-Nunito-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('../assets/fonts/subset-Nunito-Black.woff2') format('woff2'),
+        url('../assets/fonts/subset-Nunito-Black.woff') format('woff'),
+        url('../assets/fonts/subset-Nunito-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    background: #FFFFFB;
+    font-family: Nunito, sans-serif;
+    font-weight: bold;
+    color: #000000;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 46px;
+    padding-right: 46px;
+}
+
+.homework {
+    padding-top: 27px;
+    padding-bottom: 191px;
+    position: relative;
+}
+
+.homework:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: #F8F8FA;
+    z-index: -1;
+}
+
+.homework__title {
+    text-align: center;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 65px;
+    letter-spacing: -0.015em;
+    text-transform: uppercase;
+    margin-bottom: 102px;
+}
+
+.homework__title span {
+    color: #D72F3F;
+    font-size: 48px;
+}
+
+.homework__wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.homework__form {
+    padding-right: 85px;
+    padding-left: 17px;
+    flex: 0 0 50%;
+}
+
+.form__title {
+    font-size: 36px;
+    line-height: 48px;
+    margin-bottom: 15px;
+}
+
+.form__description {
+    font-size: 22px;
+    line-height: 27px;
+    color: #636363;
+    margin-bottom: 67px;
+}
+
+.form__field {
+    margin-bottom: 20px;
+}
+
+.form__label {
+    font-size: 16px;
+    line-height: 27px;
+    color: #C6C6C4;
+    margin-bottom: 3px;
+    display: block;
+}
+
+.form__input {
+    font-family: inherit;
+    font-size: 20px;
+    line-height: 27px;
+    color: #323232;
+    height: 30px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #C6C6C4;
+    background: transparent;
+    width: 100%;
+}
+
+.form__field_agree {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+
+.form__label_agree {
+    color: #636363;
+    order: 2;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.form__actions {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.form__submit {
+    width: 210px;
+    height: 70px;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+.form__footer {
+    margin-top: 44px;
+    text-align: center;
+}
+
+.form__link {
+    font-size: 16px;
+    line-height: 27px;
+    color: #636363;
+    text-decoration: none;
+}
+
+.homework__image-wrapper {
+    flex-grow: 1;
+    padding: 60px 0 60px 11px;
+}
+
+.homework__image-img {
+    background-image: url("../assets/images/rocket.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 600px;
+    width: 543px;
+    max-width: 100%;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    overflow-y: auto;
+    display: none;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    padding: 30px 0;
+    background: #aaaaabb3;
+}
+
+.modal.modal_show {
+    display: flex;
+}
+
+.modal__wrap {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 100%;
+    min-height: 100%;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal__body {
+    margin: 50px 0;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background: #fff;
+    width: 600px;
+    max-width: 100%;
+    overflow: visible;
+    padding: 30px 40px;
+    box-shadow: 6px 6px 9px 3px #6c6c6c;
+    border-radius: 10px;
+}
+
+.modal__text {
+    font-size: 24px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.modal__actions {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.modal__btn {
+    padding: 13px 40px;
+    font-size: 20px;
+    line-height: 1;
+}
+

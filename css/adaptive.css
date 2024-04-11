@@ -1,0 +1,36 @@
+@media screen and (max-width: 768px) {
+    .homework {
+        padding-bottom: 27px
+    }
+    .homework:before {
+        content: none;
+    }
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .homework__wrapper {
+        flex-direction: column;
+    }
+
+    .homework__form {
+        padding: 0;
+        flex-basis: 100%;
+        max-width: 452px;
+        margin: 0 auto;
+    }
+
+    .homework__image-wrapper {
+        padding: 60px 0 0;
+
+    }
+
+    .homework__image-img {
+        max-width: 100%;
+    }
+
+    .homework__image {
+        background-position: center;
+        background-size: contain;
+    }
+}

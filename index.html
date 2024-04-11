@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HomeWork Registration</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/adaptive.css">
+    <script src="js/javascript.js" defer></script>
+</head>
+<body>
+
+    <main class="homework">
+        <div class="container">
+            <h1 class="homework__title">home<span>W</span>orks</h1>
+            <div class="homework__wrapper">
+                <section class="homework__form form">
+                    <h2 id="form-title" class="form__title">Get your free account</h2>
+                    <p class="form__description">
+                        Try homeWorks BUSINESS free for 15 days. Downgrade to Basic (Free Forever) anytime.
+                    </p>
+                    <form action="#" method="post" class="form__container" id="form">
+                        <div class="form__field">
+                            <label for="full-name" class="form__label">Full Name</label>
+                            <input type="text" class="form__input js-required" id="full-name">
+                        </div>
+                        <div class="form__field">
+                            <label for="username" class="form__label">Your username</label>
+                            <input type="text" class="form__input js-required" id="username">
+                        </div>
+                        <div class="form__field">
+                            <label for="email" class="form__label">E-mail</label>
+                            <input type="email" class="form__input js-required" id="email">
+                        </div>
+                        <div class="form__field">
+                            <label for="password" class="form__label">Password</label>
+                            <input type="password" class="form__input js-required" id="password">
+                        </div>
+                        <div class="form__field">
+                            <label for="repeat-password" class="form__label">Repeat Password</label>
+                            <input type="password" class="form__input js-required" id="repeat-password">
+                        </div>
+                        <div class="form__field form__field_agree">
+                            <label for="agree" class="form__label form__label_agree">Agree to our Terms of Service and Privacy Statement</label>
+                            <input type="checkbox" id="agree">
+                        </div>
+                        <div class="form__actions">
+                            <button type="button" class="btn form__submit" id="form-btn-action">Sign Up</button>
+                        </div>
+                    </form>
+                    <div id="form-footer" class="form__footer">
+                        <a href="#" class="form__link" id="link-switch-form">Already have an account?</a>
+                    </div>
+                </section>
+                <div class="homework__image-wrapper">
+                    <div class="homework__image-img"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal__wrap">
+            <div class="modal__body">
+                <p class="modal__text">На вашу почту выслана ссылка, перейдите по ней, чтобы завершить регистрацию</p>
+                <div class="modal__actions">
+                    <button class="btn modal__btn">Ок</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
