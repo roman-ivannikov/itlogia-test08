@@ -1,11 +1,39 @@
 window.onload = () => {
 
-    const form = document.getElementById('form');
-    const checkboxAgree = document.getElementById('agree');
-    const modal = document.getElementById('modal');
-    const btnForm = document.getElementById('form-btn-action');
-    const linkSwitchForm = document.getElementById('link-switch-form');
+    const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+    const ERROR_COLOR = 'palevioletred';
+    const SUCCESS_COLOR = 'greenyellow';
 
+
+    const funcShared = (element) => {
+        return document.getElementById(element);
+    }
+
+    const form = funcShared('form');
+    const checkboxAgree = funcShared('agree');
+    const modal = funcShared('modal');
+    const btnForm = funcShared('form-btn-action');
+    const linkSwitchForm = funcShared('link-switch-form');
+    const formInputs = form.querySelectorAll('input');
+
+
+    /*
+    // Обработчик изменения значений в полях формы
+     */
+    function handleInputChange(event) {
+        const input = event.target;
+
+        if (input.id === 'full-name') {
+            input.value = input.value.replace(/[0-9]/g, "");
+        } else if (input.id === 'username') {
+            input.value = input.value.replace(/[/.,]/g, "");
+        }
+
+        input.value !== '' ?
+            input.style.borderColor = SUCCESS_COLOR :
+            input.style.borderColor = '';
+
+    }
 
     /*
     // Валидация полей формы
@@ -21,6 +49,13 @@ window.onload = () => {
 
             if (input.value === '') {
                 alert(`Заполните поле "${input.previousElementSibling.innerText}"`);
+                input.style.borderColor = ERROR_COLOR;
+                return false;
+            }
+
+            if (input.id === 'email' && ! EMAIL_REGEXP.test(input.value)) {
+                alert('Введен некорректный Email');
+                input.style.borderColor = ERROR_COLOR;
                 return false;
             }
 
@@ -85,7 +120,7 @@ window.onload = () => {
         if (!validate) {
             return false;
         }
-        alert(`Добро пожаловать, ${document.getElementById('username').value}!`);
+        alert(`Добро пожаловать, ${funcShared('username').value}!`);
         switchForm();
 
     }
@@ -101,10 +136,9 @@ window.onload = () => {
 
         form.reset();
 
-        const inputElements = form.querySelectorAll('input');
         const hideInputsId = ['full-name', 'email', 'repeat-password', 'agree'];
 
-        inputElements.forEach((input) => {
+        formInputs.forEach((input) => {
             if (hideInputsId.includes(input.id.toLowerCase())) {
                 if ('login' === type) {
                     input.setAttribute('hidden', 'hidden');
@@ -114,6 +148,9 @@ window.onload = () => {
                     input.parentElement.style.display = '';
                 }
             }
+
+            input.style.borderColor = '';
+
         });
 
         linkSwitchForm.innerText = ('login' === type ? 'No account yet?' : 'Already have an account?');
@@ -138,16 +175,9 @@ window.onload = () => {
     }
 
 
-    // Проверяем изменение поля. На случай вставки значения из буфера обмена или голосом
-    form.oninput = (e) => {
-        const target = e.target;
-
-        if (target.id === 'full-name') {
-            target.value = target.value.replace(/[0-9]/g, "");
-        } else if (target.id === 'username') {
-            target.value = target.value.replace(/[/.,]/g, "");
-        }
-    }
+    formInputs.forEach(input => {
+        input.addEventListener('input', handleInputChange);
+    });
 
 
     // Действия на изменения чекбокса Agree
